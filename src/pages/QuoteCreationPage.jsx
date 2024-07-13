@@ -9,6 +9,7 @@ function QuoteCreationPage() {
     changeHandler,
     handleSubmit,
     quote,
+    fileInput,
   } = useCreation();
 
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ function QuoteCreationPage() {
                 </span>
                 <input
                   type="file"
+                  key={fileInput}
                   onChange={fileChangeHandler}
                   //   className="hidden"
                   required

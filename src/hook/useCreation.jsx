@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 const useCreation = () => {
   const [file, setFile] = useState(null);
   const [mediaUrl, setMediaUrl] = useState("");
+  const [fileInput, setFileInput] = useState(Date.now());
   const [quote, setQuote] = useState({
     text: "",
     mediaUrl: "",
@@ -64,6 +65,12 @@ const useCreation = () => {
         const data = await res.json();
         console.log(data);
         toast.success("Quote Created successfully!");
+        setQuote({
+          text: "",
+          mediaUrl: "",
+        });
+        setMediaUrl("");
+        setFileInput(Date.now());
       }
     } catch (err) {
       console.log(err);
@@ -77,6 +84,7 @@ const useCreation = () => {
     changeHandler,
     handleSubmit,
     quote,
+    fileInput,
   };
 };
 
